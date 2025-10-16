@@ -12,6 +12,8 @@ Transformer模型自2017年被提出以来，已成为自然语言处理（NLP�
 
 - **Encoder-Decoder (代表: T5, BART)**：采用完整的Transformer架构，包含编码器和解码器。核心思想就是将几乎所有NLP的下游任务都统一为一种“文本到文本”（Text-to-Text）的格式。常用于序列到序列（Seq2Seq）任务，如机器翻译、文本摘要等。
 
+---
+
 ## Bert (Encoder-only)
 [Bert论文原文](https://arxiv.org/abs/1810.04805)
 
@@ -73,3 +75,24 @@ Transformer模型自2017年被提出以来，已成为自然语言处理（NLP�
 - **序列标注输出与损失**
 ![序列标注输出与损失](https://github.com/zyp-up/mainstream-transformer-based-language-models/blob/main/assets/bert19.png?raw=true)
 
+---
+
+## T5 (Encoder-Decoder)
+
+将所有NLP任务都统一为一种“文本到文本（`text-to-text`）”的格式。无论是翻译、分类、回归还是摘要，输入都是文本，输出也都是文本。
+
+1.  **数据构造**
+    1.  **初始数据构造**
+        这是T5框架的第一步，也是最巧妙的一步。所有原始数据都需要被预处理成带有任务前缀的输入字符串和目标输出字符串。
+
+| 任务类型 | 原始数据 | 构造后的输入 (Input String) | 构造后的标签 (Target String) |
+| :--- | :--- | :--- | :--- |
+| **机器翻译** | (源语言句子, 目标语言句子) | `translate English to German: ` + 源语言句子 | 目标语言句子 |
+| **文本分类** | (句子, 标签) | `cola sentence: ` + 句子 | 标签对应的文本 (e.g., `acceptable`) |
+| **摘要** | (长篇文章, 摘要) | `summarize: ` + 长篇文章 | 摘要 |
+| **语义相似度** (回归) | (句子1, 句子2, 分数) | `stsb sentence1: ` + 句子1 + ` sentence2: ` + 句子2 | 分数对应的字符串 (e.g., `3.8`) |
+
+2.  **预训练（跨度破坏 Span Corruption）**
+    T5与BERT的预训练方式不同。例如，以 `Thank you <X> me to your party <Y> week.` 为输入，模型需要用自回归的方式逐个生成预测 `<X> for inviting <Y> last <Z>`。这相当于在解码器中输入一个起始符（start token），然后让它预测出句子中所有被破坏的片段，达到“完形填空”的效果。
+
+---
