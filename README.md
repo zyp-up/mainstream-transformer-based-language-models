@@ -1,7 +1,7 @@
 
 # 基于Transformer的三大主流语言模型架构
 
-![思维导图概览](https://storage.googleapis.com/static.aiforpro.com/1689264930263-12826/orignal_033d45c8188ea6891398bb89280d0752.png)
+![思维导图概览](https://github.com/zyp-up/mainstream-transformer-based-language-models/blob/main/assets/%E5%9F%BA%E4%BA%8Etransformer%E7%9A%84%E4%B8%89%E5%A4%A7%E4%B8%BB%E6%B5%81%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E6%9E%B6%E6%9E%84.png)
 
 ## 概述
 
