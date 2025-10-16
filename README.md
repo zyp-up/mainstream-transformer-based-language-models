@@ -1,5 +1,12 @@
 # 基于Transformer的三大主流语言模型架构
 
+## Update
+**v1.0 (2025-10-16):**
+- 全面梳理了基于Transformer的三大主流语言模型架构（Encoder-only, Decoder-only, Encoder-Decoder）
+- 详细拆解了 **BERT** 的预训练任务（MLM, NSP）与微调流程。
+- 阐述了 **T5** 将所有NLP任务统一为Text-to-Text范式的核心思想。
+- 深入探讨了 **GPT系列** 的演进，特别是 **InstructGPT** 中基于人类反馈的强化学习（RLHF）的全流程细节。
+
 ![思维导图概览](https://github.com/zyp-up/mainstream-transformer-based-language-models/blob/main/assets/%E5%9F%BA%E4%BA%8Etransformer%E7%9A%84%E4%B8%89%E5%A4%A7%E4%B8%BB%E6%B5%81%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E6%9E%B6%E6%9E%84.png?raw=true)
 
 ## 概述
